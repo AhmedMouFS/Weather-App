@@ -25,7 +25,6 @@
         <source src="video/(No Copyright) Sky and cloud background video.Ogg" type="video/ogg">
         Your browser does not support the video tag.
     </video>
-
         <!-- Start App -->
         <div class="container position-relative" id="container" style="z-index:2000;">
             <div class="row mb-2 py-3" id="app">
@@ -36,35 +35,50 @@
                                 <h3> <br> </h3>
                                 <span class="fs-4"></span>
                             </div>
+                            <div class="body-location" id="detectlocaion">
+                                <div class="circle1"></div>
+                                <div class="circle2"></div>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
                         </div>
                         <div class="col-sm-6 col-8">
                             <div class="d-flex justify-content-end align-items-center app-search">
                                 <button class="pe-3" id="reload"><i class="fas fa-spinner fs-3" id="refresh"></i></button>
-                                <input class="rounded-5 ps-4" type="text" placeholder="enter city name" id="cityid">
+                                <input class="rounded-5 px-4" type="search" placeholder="enter city name" id="cityid">
                                 <button class="ps-3" id="citybtn"><i class="fas fa-search fs-3"></i></button>
                             </div>
                             <span class="alert alert-danger errors"></span>
                         </div>
+                    </div> 
+                </div> 
+
+                <div class="col-lg-6 col-md-5">
+                    <div class="d-flex align-items-center justify-content-center justify-content-sm-start align-items-center text-white mb-2 app-temp">
+                        <img src="" alt="" draggable="false" height="90">
+                        <p class="fw-bold fs-1"><sup></sup> <span style="display: block; line-height: 0.9;"></span></p>
                     </div>
-                </div>            
-                            <div class="app-temp d-flex justify-content-evenly align-items-center text-white mb-2">
-                                <img src="images/clouds.png" alt="" draggable="false" height="90">
-                                <p class="fw-bold fs-1" style="line-height: 0.9;"><sup></sup> <span style="display: block;"></span></p>
-                            </div>
-                            <div class="col-12">
-                                <div class="wind d-flex justify-content-around text-white py-1 fs-6 fw-bold rounded-1 mb-2" style="background-color: #0000005e;">
-                                    <span>wind : </span>
-                                    <span id="w-speed"> </span>
-                                    <span id="w-angle"> </span>
-                                </div>
-                            </div>
+                </div>
+                <div class="col-lg-6 col-md-7">
+                    <div id="hourly">
+                
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="wind d-flex justify-content-around text-white py-1 fs-6 fw-bold rounded-1 mb-2" style="background-color: #0000005e;">
+                        <span>wind : </span>
+                        <span id="w-speed"> </span>
+                        <span id="w-angle"> </span>
+                    </div>
+                </div>          
         <!-- End App -->
     </div>
+    <footer class="text-center text-white mb-2">
+        <b>Developed by <strong>eng.Ahmed Moustafa </strong> &copy 2023</b>
+     </footer>
+  </div>
 </div>
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/all.min.js"></SCript>
-    <script src="js/script2.js"></script>
-    <!-- <script src="js/script.js"></script> -->
-    <!-- <script src="js/test.js"></script> -->
+    <script src="js/script.js"></script>
 </body>
 </html>
