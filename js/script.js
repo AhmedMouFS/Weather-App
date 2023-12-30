@@ -35,6 +35,11 @@ let detectLocaion = document.getElementById("detectlocaion")
 
 let hourlySection = document.getElementById("hourly")
 
+let test = document.getElementById("body")
+
+
+
+
 function errors(massage){
     let funInterval = setInterval(show,1)
     let opa = 0
@@ -123,25 +128,17 @@ function GET_TEMP_SUMMARY(URL_ARG,value){
     request.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){   
             let requestToObject = JSON.parse(request.responseText)
-
+            console.log(requestToObject)
             if(URL_ARG.indexOf("find_places_prefix") !== -1){   
-
-            if(requestToObject.length !== 0){
-                let requestToObjectFirstCity = requestToObject[0]
-                let cityName = requestToObjectFirstCity.name.toLowerCase()
-                let vSlice = value.toLowerCase().slice(0,3)
-
-                if(cityName.includes(vSlice)){
+                   if(requestToObject.length !== 0){
+                    let checkName = requestToObject.find(function(fLetter){
+                        return fLetter.name[0] == value[0].toUpperCase()
+                   })
                     window.localStorage.setItem("city",value)
-                    let place_id = requestToObjectFirstCity.place_id
-                    createRequset(weatherstack,place_id,requestToObjectFirstCity)
+                    let place_id = checkName.place_id
+                    createRequset(weatherstack,place_id,checkName)
                     cityInput.value = ""
-                }else{
-                    loading.style.display = "none"
-                    errors("city is invalid")
-                    console.log(cityName)
-                    console.log(vSlice)
-                }
+
                }else{
                 loading.style.display = "none"
                 errors("city is invalid")
@@ -237,7 +234,6 @@ function GET_TEMP_SUMMARY(URL_ARG,value){
 // check input field and then get data
 function CHECK_INPUT_SET_GET_DATA(){
     let cityValue = cityInput.value.trim()
-    console.group(cityValue)
     if(cityValue != ""){
         if(cityValue.length >= 3 ){
             GET_TEMP_SUMMARY(find_any_place,cityValue)
